@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<title>Shrey Gupta</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Favicons for website URL-->
+<link rel="icon" href="icons-s.png"> 
+<!-- type="image/x-icon"   -->
+
+<!-- The stylesheet should go in the <head>, or be included in your CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="src/blockrain.css">
+
+<!-- <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'> -->
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Varela" />
+<script src="https://kit.fontawesome.com/2c01e62ef1.js" crossorigin="anonymous"></script>
+
+<style>
+ body 
+ {
+  background-color: #F5F5F5;
+  font-family: 'Lato';font-size: 17px;
+ }
+
+ /* 'Titillium Web'  */
+html,h1,h2,h3,h4,h5,h6 {font-family: 'Varela', sans-serif}
+ 
+ 
+/* unvisited link */
+ 
+.bolder{
+            font-weight: boldest;
+}
+ 
+a:link {
+  color: #2C3D63;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: #A3ADB8;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: #00535F;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: #292930;
+  text-decoration: none;
+}
+ 
+/* Light mode CSS */
+:root {
+  --text: #202020;
+  --background: #fafafa;
+}
+
+/* Dark mode CSS */
+body.dark {
+  --text: #fafafa;
+  --background: #202020;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+}
+
+.row{
+  position: relative;
+}
+
+/* .fa-fast-forward{
+  position:absolute;
+  padding: 9px 0 0 8px;
+  font-size: 18px;
+} */
+
+.news-ticker{
+  /* background: #fafafa; */
+  box-sizing: content-box;
+  height: 300px;
+  overflow: hidden;
+  padding: 5px 10px 10px 10px;
+}
+
+.news-ticker ul{
+   padding: 0;
+   margin-left: 10px;
+   list-style: circle;
+   animation:scrollUp 8s ease-in-out infinite normal;
+   -webkit-animation: scrollUp 8s ease-in-out infinite normal;
+   /* animation: ticker 5s infinite; 
+   animation-timing-function: cubic-bezier(1,0,.5,0); */
+   
+}
+
+@-webkit-keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-60%);
+            transform: translateY(-60%);
+  }
+}
+
+@keyframes scrollUp {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-60%);
+            transform: translateY(-60%);
+  }
+}
+
+/*Uncomment this when animation style is ticker*/
+/* @keyframes ticker{
+  0%{
+    margin-top: 0;
+  }
+  20%{
+    margin-top: -29px;
+  }
+  40%{
+    margin-top: -56px;
+  }
+  65%{
+    margin-top: -84px;
+  }
+  85%{
+    margin-top: -110px;
+  }
+  100%{
+    margin-top: 0;
+  }
+} */
+
+.news-ticker ul:hover{
+  animation-play-state: paused;
+}
+
+</style>
+<body class="w3-light-grey">
+ 
+<script>
+    // A function for toggling the theme
+    function toggleTheme() {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+
+        localStorage.setItem(
+            "colorTheme",
+            document.body.classList.contains("dark") ? "dark" : "light"
+        );
+    }
+
+    // Initialize the theme
+    if (localStorage.getItem("colorTheme") === "dark") {
+        toggleTheme();
+    } else if (
+        localStorage.getItem("colorTheme") !== "light" &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        toggleTheme();
+    }
+</script>
+ 
+<!-- jQuery and Blockrain.js -->
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+<script src="jquery.js"></script>
+<script src="blockrain.js"></script>
+<script>
+    $('.game').blockrain();
+</script>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+    
+    <!-- Left Column -->
+    <div class="w3-third">
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+              <img src="Shrey_Piedmont.jpeg" style="width:100%" alt="Avatar">
+              <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 style = "color: white;">Shrey Gupta</h2>
+          </div>
+        </div>
+
+        <div class="w3-container">
+          <p><i class="fas fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>PhD student <a href="https://www.emory.edu/home/index.html">
+           @Emory University</a> | Member of <a href="https://cav-lab.github.io/">CAV Lab</a> and <a href="https://simbiosys.mathcs.emory.edu/home">Simbiosys Lab</a></p>
+          <p style = "font-family: cursive"><i class="fas fa-file fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i><a href="Shrey_CV.pdf" target="_blank" title="ShreyGuptaCV">Vitae</a></p>
+
+          <p><i class="fas fa-home fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>Atlanta, US</p>
+          <p><i class="fas fa-envelope fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>shrey[dot]gupta[at]emory[dot]edu</p>
+          <!--<p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>12</p> -->
+          
+          <div style="text-align: center;">
+          
+          
+          <a href="https://scholar.google.com/citations?user=BItXMD4AAAAJ&hl=en"><i class="fas fa-user-graduate fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          <a href="https://github.com/shrey-gupta"><i class="fab fa-github fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          <a href="https://www.linkedin.com/in/shrey-gupta-2a793aa9/"><i class="fab fa-linkedin fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          <a href="https://twitter.com/shrey_gupta_92"><i class="fab fa-twitter fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          <a href="https://medium.com/@shreyg69"><i class="fab fa-medium fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          
+        
+        <!-- <p><i class="fas fa-dot-circle fa-fw w3-margin-right w3-text-grey" style = "color: #2C3D63;"></i>   -->
+        </div>
+        <h3 style = "color: #2C3D63;"><b><i class="fa fa-globe fa-fw w3-margin-right" style = "color: #2C3D63;"></i>News</b></h3>
+          <div class="row">
+            
+            <!-- <i class="fa fa-fast-forward"></i> -->
+            <div class="news-ticker">
+              <ul>
+                <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
+                </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
+                
+                <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
+                  as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</li>
+                
+                <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
+                </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
+                
+                <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
+                  in GRITS'22 Seminar at Emory.</li>
+                
+                <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
+                  "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
+                  got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li>
+
+                <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
+                
+                <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
+                </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
+
+                <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- <ul id="news-alerts" class="news-alert-list">
+            <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
+            </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
+
+            <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
+              as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022. </a></li>
+
+            <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
+            </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
+
+            <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
+            in GRITS'22 Seminar at Emory.</li>
+
+            <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
+            "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
+            got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li>
+
+            <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
+
+            <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
+            </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
+
+            <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li>
+          </ul> -->
+        </div>
+      </div>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16" style="text-align: center; color: #2C3D63;">About Me</h2>
+<!--        <i class="fas fa-portrait fa-fw w3-margin-right w3-text-red"></i>
+        -->
+          <p style="text-align:justify">I am a third year PhD student in the <a href="http://www.cs.emory.edu/home/">Department of Computer Science</a> 
+           at <a href="https://www.emory.edu/home/index.html">Emory University</a>. 
+           I am co-advised by <a href ="http://www.mathcs.emory.edu/~avani/">Dr. Avani Wildani</a> and 
+           <a href ="https://emilywall.github.io/index.html">Dr. Emily Wall </a> where I work at designing models for knowledge transfer 
+           (Transfer Learning [Machine Learning] | Bayesian Belief Update [Data Visualization]). </p>
+           
+           <p> My work with <a href ="http://www.mathcs.emory.edu/~avani/">Dr. Avani Wildani</a> is in collaboration with 
+           <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Dr. Yang Liu</a> and
+           <a href ="https://scholar.google.com/citations?user=WR669KMAAAAJ&hl=en">Dr. Jianzhao Bi</a> which focuses on knowledge transfer problems 
+            using domain adaptation and transfer learning. 
+         I use Instance Transfer Learning to improve PM 2.5 predictions for sensor deficient (data poor) regions across the world.
+         We analyze how real-world data varies in complexity and the measures affecting their distribution, which in-effect provides 
+         insights into how transfer learning algorithms can be made more generalizable.</p> 
+          
+         <p> On the visualization front, my work with <a href ="https://emilywall.github.io/index.html">Dr. Emily Wall</a> looks into
+          Bayesian belief update and persistence of the belief update process, as well as how the user biases affect this persistence. </p>
+       
+         <p style="text-align:justify">I did my Master's degree at <a href="https://www.iiitd.ac.in/">IIIT-Delhi</a> and worked with <a href="http://vinodscaria.rnabiology.org/">Dr. Vinod Scaria</a> 
+         @CSIR-IGIB during my <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/705" style = "font-family: cursive">Thesis</a>. 
+         <br>
+           
+      </div>
+     
+     <div class = "w3-container w3-card w3-white  w3-margin-bottom">
+        <h2 class = "w3-text-grey w3-padding-16" style = "text-align: center; color: #2C3D63;">Publications</h2>
+        <ul style = "padding: 0;
+        margin-left: 10px;
+        list-style: circle;">
+          <li>
+            [2022] <b>Gupta, S.</b>, Karduni, A., & Wall, E. Belief Decay or Persistence? A Mixed-method Study on Belief
+            Movement Over Time. (Under Submission, EuroSys'23)
+          </li> 
+          <li>
+            [2022] <b>Gupta, S.</b>, Bi, J., Liu, Y., & Wildani, A. ISTRBoost: Importance Sampling Transfer Regression using Boosting. (Under Submission)
+            <a href="https://doi.org/10.48550/arXiv.2204.12044">[arXiv LINK]</a>.
+          </li> 
+      
+          <li>
+            [2021] A. Vatsyayan*, P. Sharma*, <b>S. Gupta</b>, S. Sandhu, S. Venu, ... & V. Scaria. 
+           DALIA- a comprehensive resource of Disease Alleles in Arab population. (PLOS ONE)
+           <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">[LINK]</a>.  <!--style = "font-family: cursive"-->
+          </li> 
+        </ul>
+     </div>
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16" style="text-align: center; color: #2C3D63;">Miscellaneous</h2>
+        <p>When I'm not down the rabbit hole of research, I like to run, read and rhyme (yep, that was intentional). In a previous life, I liked playing soccer.
+          Some might even say I am decent at the game. Some ... not me ;). I always appreciate good coffee and book recommendations. 
+          Here are some books that I would recommend:</p>
+        <ul style = "padding: 0;
+        margin-left: 10px;
+        list-style: circle;">
+          <li><b>&lt;autobiographies&gt; :</b> [A River in Darkness| Masaji Ishikawa], 
+          [Educated| Tara Westover], [Five Chimneys| Olga Lengyel], [When Breath Becomes Air| Paul Kalanithi], [The Choice| Edith Eger], [Born a Crime| Trevor Noah]
+          </li>
+          <li><b>&lt;ultra-running&gt; :</b> [Finding Ultra| Rich Roll], 
+          [Eat & Run| Scott Jurek] 
+          </li>
+          <li><b>&lt;growth/success&gt; :</b> [Can't Hurt Me| David Goggins],
+          [Grit| Angela Duckworth], [Shoe Dog| Phil Knight]
+          </li>
+       </ul>
+        <p>Bored of reading all the technical stuff? Play some Tetris <b>
+        <a href="/game.html">here</a> ;)</b>
+        </p> 
+        
+      <!-- End Right Column -->
+      </div>
+    
+    <!-- End Grid -->
+    </div>
+    
+    <!-- End Page Container -->
+  </div>
+  
+
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="src/blockrain.jquery.libs.js"></script>
+<script src="src/blockrain.jquery.src.js"></script>
+<script src="src/blockrain.jquery.themes.js"></script>
+
+<script>
+  var $demo = $('#tetris-demo').blockrain({
+    showFieldOnStart: true,
+    theme: 'candy',
+    speed: 15
+  });
+</script>
+       
+    
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+ <small>Copyright &copy; Shrey Gupta. All rights reserved. Tetris designed by <a href="https://aerolab.us/">aerolab</a>. Switch Theme: <button onclick="toggleTheme()">SWTCH</button> </small>
+ 
+
+</footer>
+
+</body>
+</html>
