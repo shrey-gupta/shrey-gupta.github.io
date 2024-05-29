@@ -249,12 +249,12 @@ body {
                 <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
                 </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
                 
-                <!-- <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
-                  in GRITS'22 Seminar at Emory.</li> -->
+                <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
+                  in GRITS'22 Seminar at Emory.</li>
                 
-                <!-- <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
+                <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
                   "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
-                  got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li> -->
+                  got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li>
 
                 <!-- <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
                 
@@ -304,7 +304,7 @@ body {
         -->
         <p style="text-align:justify">I am a PhD candidate in the <a href="http://www.cs.emory.edu/home/">Department of Computer Science</a> 
         at <a href="https://www.emory.edu/home/index.html">Emory University</a> where I am advised by 
-        <a href ="https://www.cs.emory.edu/~avani/">Dr. Avani Wildani</a> (now at <a href ="https://research.cloudflare.com/about/people/avani-wildani/">Cloudflare</a>). 
+        <a href ="http://www.mathcs.emory.edu/~avani/">Dr. Avani Wildani</a> (now at <a href ="https://research.cloudflare.com/people/avani-wildani/">Cloudflare</a>). 
         <br><br>
         
       </a> My research focuses on designing domain adaptation & transfer learning models for high-dimensional spatio-temporal datasets. 
@@ -314,14 +314,14 @@ body {
       models for the prediction of air pollution in countries/communities that require a cost effective solution.
       <br><br>
 
-      For my research, I am fortunate to work with <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Dr. Yang Liu</a> and 
-      <a href ="https://www.zuefle.org/">Dr Andreas Zufle</a>. 
+      For my research, I am fortunate to work with <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Dr. Yang Liu</a> as well as 
+      collaborate with <a href ="https://www.zuefle.org/">Dr Andreas Zufle</a> and <a href ="https://scholar.google.com/citations?user=WR669KMAAAAJ&hl=en">Dr. Jianzhao Bi</a>. 
       I have also worked with <a href ="https://emilywall.github.io/index.html">Dr. Emily Wall</a> in the domain of human decision making. 
       Previously, I obtained my master's degree at <a href="https://www.iiitd.ac.in/">IIIT-Delhi</a> 
-      where I worked with <a href="https://vinodscaria.genomes.in/">Dr. Vinod Scaria</a> @CSIR-IGIB for my 
+      where I worked with <a href="http://vinodscaria.rnabiology.org/">Dr. Vinod Scaria</a> @CSIR-IGIB for my 
       <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/705">Thesis</a>. 
-      </p>
-       <!-- and <a href ="https://scholar.google.com/citations?user=WR669KMAAAAJ&hl=en">Dr. Jianzhao Bi</a> -->
+       </p>
+
        <!-- style = "font-family: cursive" -->
            
       </div>
