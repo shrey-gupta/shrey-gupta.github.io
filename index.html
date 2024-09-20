@@ -29,7 +29,6 @@
  /* 'Titillium Web'  */
 html,h1,h2,h3,h4,h5,h6 {font-family: 'Varela', sans-serif}
  
- 
 /* unvisited link */
  
 .bolder{
@@ -80,12 +79,6 @@ body {
   position: relative;
 }
 
-/* .fa-fast-forward{
-  position:absolute;
-  padding: 9px 0 0 8px;
-  font-size: 18px;
-} */
-
 .news-ticker{
   /* background: #fafafa; */
   box-sizing: content-box;
@@ -127,31 +120,63 @@ body {
   }
 }
 
-/*Uncomment this when animation style is ticker*/
-/* @keyframes ticker{
-  0%{
-    margin-top: 0;
-  }
-  20%{
-    margin-top: -29px;
-  }
-  40%{
-    margin-top: -56px;
-  }
-  65%{
-    margin-top: -84px;
-  }
-  85%{
-    margin-top: -110px;
-  }
-  100%{
-    margin-top: 0;
-  }
-} */
 
 .news-ticker ul:hover{
   animation-play-state: paused;
 }
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+/* Slider before the switch */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+/* The toggle switch when checked */
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* The slider when checked */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 
 </style>
 <body class="w3-light-grey">
@@ -195,101 +220,111 @@ body {
     
     <!-- Left Column -->
     <div class="w3-third">
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-              <img src="Shrey_Piedmont.jpeg" style="width:100%" alt="Avatar">
-              <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 style = "color: white;">Shrey Gupta</h2>
-          </div>
+      <div class="w3-white w3-text-grey">
+        
+        <div class="w3-display-container w3-padding-16">
+          <img src="Shrey_Piedmont.jpeg" style="width:100%;" alt="Avatar">
+            <div class="w3-display-bottomleft w3-container w3-padding-16">
+              <h2 style = "color: white;">Shrey Gupta</h2>
+            </div>
         </div>
 
-        <div class="w3-container">
+        <div class="w3-container w3-padding-16">
           <p><i class="fas fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>PhD student <a href="https://www.emory.edu/home/index.html">
            @Emory University</a> | Member of <a href="https://scholarblogs.emory.edu/remote-sensing-group/"> Remote Sensing Group</a> | Previously 
            @<a href="https://cav-lab.github.io/">CAV Lab</a>, @<a href="https://simbiosys.mathcs.emory.edu/home">Simbiosys Lab</a></p>
-          <p style = "font-family: cursive"><i class="fas fa-file fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>
-            <a href="assets/files/resume/Resume_Shrey_web.pdf" target="_blank" title="ShreyGuptaCV">Vitae</a></p>
 
-          <p><i class="fas fa-home fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>Atlanta, US</p>
-          <p><i class="fas fa-envelope fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>shrey[dot]gupta[at]emory[dot]edu</p>
-          <!--<p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>12</p> -->
-          
           <div style="text-align: center;">
           
+          <a href="assets/files/resume/shrey-cv.pdf" title="Resume">
+          <i class="fas fa-file fa-fw w3-xlarge w3-hover-opacity" style="color: #2C3D63;"></i></a>
+          <!-- fa-file  -->
+            
+          <a href = "mailto:shrey.gupta@emory.edu" title = "Email">
+            <i class="fas fa-envelope fa-fw w3-xlarge w3-hover-opacity" style="color: #2C3D63;"></i></a>
           
-          <a href="https://scholar.google.com/citations?user=BItXMD4AAAAJ&hl=en"><i class="fas fa-user-graduate fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          <a href="https://github.com/shrey-gupta"><i class="fab fa-github fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          <a href="https://www.linkedin.com/in/shrey-gupta-2a793aa9/"><i class="fab fa-linkedin fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          <a href="https://twitter.com/shrey_gupta_92"><i class="fab fa-twitter fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          <a href="https://medium.com/@shreyg69"><i class="fab fa-medium fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          <a href="https://scholar.google.com/citations?user=BItXMD4AAAAJ&hl=en">
+            <i class="fas fa-user-graduate fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          
+          <a href="https://github.com/shrey-gupta">
+            <i class="fab fa-github fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          
+          <a href="https://www.linkedin.com/in/shrey-gupta-2a793aa9/">
+            <i class="fab fa-linkedin fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          
+          <a href="https://twitter.com/shrey_gupta_92">
+            <i class="fab fa-twitter fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
+          
+          <a href="https://medium.com/@shreyg69">
+            <i class="fab fa-medium fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
           
         
         <!-- <p><i class="fas fa-dot-circle fa-fw w3-margin-right w3-text-grey" style = "color: #2C3D63;"></i>   -->
         </div>
-        <h3 style = "color: #2C3D63;"><b><i class="fa fa-globe fa-fw w3-margin-right" style = "color: #2C3D63;"></i>News</b></h3>
-          <div class="row">
-            
-            <!-- <i class="fa fa-fast-forward"></i> -->
-            <div class="news-ticker">
-              <ul>
-                <li>[5/27/2024] Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</li>
+        
+        <!-- <div class="w3-container w3-padding-16">
+          <h3 style = "color: #2C3D63;"><b><i class="fa fa-globe fa-fw w3-margin-right" style = "color: #2C3D63;"></i>News</b></h3>
+            <div class="row">
+              
+              <div class="news-ticker">
+                <ul>
+                  <li>[5/27/2024] Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</li>
 
-                <li style = "color: #A42941;"> New!! [11/06/2023] Successfully defended my PhD proposal!</li>
+                  <li style = "color: #A42941;"> New!! [11/06/2023] Successfully defended my PhD proposal!</li>
 
-                <li>[6/15/2023] Our work on regression transfer learning got accepted at IJDSA journal!</li>
+                  <li>[6/15/2023] Our work on regression transfer learning got accepted at IJDSA journal!</li>
 
-                <li>[2/27/2023] Our work on analyzing belief movement got accepted at EuroVis'23!</li>
+                  <li>[2/27/2023] Our work on analyzing belief movement got accepted at EuroVis'23!</li>
 
-                <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
-                </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
+                  <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
+                  </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
+                  
+                  <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
+                    as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</li>
+                  
+                  <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
+                  </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li> -->
+                  
+                  <!-- <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
+                    in GRITS'22 Seminar at Emory.</li>
+                  
+                  <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
+                    "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
+                    got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li> -->
+
+                  <!-- <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
+                  
+                  <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
+                  </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
+
+                  <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li> -->
                 
-                <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
-                  as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</li>
-                
-                <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
-                </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
-                
-                <!-- <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
-                  in GRITS'22 Seminar at Emory.</li> -->
-                
-                <!-- <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
-                  "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
-                  got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li> -->
-
-                <!-- <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
-                
-                <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
-                </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
-
-                <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li> -->
-              </ul>
+                <!-- </ul>
+              </div>
             </div>
+        </div> -->
+      
+      
+      <div class="w3-container w3-padding-16">
+          <h3 style="color: #2C3D63; text-align: left;">
+              <b><i class="fa fa-globe fa-fw w3-margin-right" style="color: #2C3D63;"></i>News</b>
+          </h3>
+          <div class="news-ticker-container">
+              <div class="news-ticker">
+                  <ul>
+                      <li>[5/27/2024] Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</li>
+                      <li style="color: #A42941;">New!! [11/06/2023] Successfully defended my PhD proposal!</li>
+                      <li>[6/15/2023] Our work on regression transfer learning got accepted at IJDSA journal!</li>
+                      <li>[2/27/2023] Our work on analyzing belief movement got accepted at EuroVis'23!</li>
+                      <li>[11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022</a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
+                      <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</a></li>
+                      <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022</a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
+                  </ul>
+              </div>
           </div>
-          <!-- <ul id="news-alerts" class="news-alert-list">
-            <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
-            </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
-
-            <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
-              as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022. </a></li>
-
-            <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
-            </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li>
-
-            <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
-            in GRITS'22 Seminar at Emory.</li>
-
-            <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
-            "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
-            got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li>
-
-            <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
-
-            <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
-            </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
-
-            <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li>
-          </ul> -->
-        </div>
+      </div>
+        
+      </div>
       </div>
 
     <!-- End Left Column -->
@@ -298,8 +333,8 @@ body {
     <!-- Right Column -->
     <div class="w3-twothird">
     
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16" style="text-align: center; color: #2C3D63;">About Me</h2>
+      <div class="w3-container w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16" style="text-align: left; color: #2C3D63;">About Me</h2>
 <!--        <i class="fas fa-portrait fa-fw w3-margin-right w3-text-red"></i>
         -->
         <p style="text-align:justify">I am a PhD candidate in the <a href="http://www.cs.emory.edu/home/">Department of Computer Science</a> 
@@ -315,7 +350,7 @@ body {
       <br><br>
 
       For my research, I am fortunate to work with <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Dr. Yang Liu</a> and 
-      <a href ="https://www.zuefle.org/">Dr Andreas Zufle</a>. 
+      <a href ="https://www.zuefle.org/">Dr Andreas Züfle</a>. 
       I have also worked with <a href ="https://emilywall.github.io/index.html">Dr. Emily Wall</a> in the domain of human decision making. 
       Previously, I obtained my master's degree at <a href="https://www.iiitd.ac.in/">IIIT-Delhi</a> 
       where I worked with <a href="https://vinodscaria.genomes.in/">Dr. Vinod Scaria</a> @CSIR-IGIB for my 
@@ -326,38 +361,53 @@ body {
            
       </div>
      
-     <div class = "w3-container w3-card w3-white  w3-margin-bottom">
-        <h2 class = "w3-text-grey w3-padding-16" style = "text-align: center; color: #2C3D63;">Publications</h2>
+     <div class = "w3-container w3-white  w3-margin-bottom">
+
+        <h2 class = "w3-text-grey w3-padding-16" style = "text-align: left; color: #2C3D63;">Publications</h2>
         <ul style = "padding: 0;
         margin-left: 10px;
         list-style: circle;"> 
           <li>
-            <span style = "color: #2C3D63;"><a href=""> 
+            <b>[ECML-PKDD, 2024]</b> &nbsp; <span style = "color: #2C3D63;"><a href=""> 
               Spatial Transfer Learning for Estimating PM 2.5 in Data-poor Regions </a></span>
-            &nbsp; <b>[Accepted ECML-PKDD, 2024]</b> <a href="https://arxiv.org/pdf/2404.07308"><b>[ArXiv]</b></a>
+            &nbsp; 
             <br><span style = "color: #4a4a4d;"><b>Shrey Gupta*</b>, Yongbee Park*, Jianzhao Bi, Suyash Gupta, Andreas Züfle, Avani Wildani & Yang Liu.</span> 
+            <br><span>
+              <a href="https://arxiv.org/pdf/2404.07308"><i class="fa-solid fa-file-pdf"></i></a>
+              <a href ="https://github.com/YongbeeIngkle/spatial-transfer-learning">[code]</a>
+              <a href ="assets/files/publications/spatial-transfer/ecml-pkdd-paper-slides.pdf">[slides]</a>
+              <a href ="assets/files/publications/spatial-transfer/paper-poster-ecml-pkdd.pdf">[poster]</a>
+            </span>
           </li>
           <br> 
           <li>
-            <span style = "color: #2C3D63;"><a href="https://doi.org/10.1111/cgf.14816"> 
+            <b>[EuroVis, 2023]</b> &nbsp; <span style = "color: #2C3D63;"><a href="https://doi.org/10.1111/cgf.14816"> 
               Belief Decay or Persistence? A Mixed-method Study on Belief Movement Over Time.</a></span>
-            &nbsp; <b>[EuroVis, 2023]</b> &nbsp; <a href="assets/files/publications/belief-persistence-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+            &nbsp; 
             <br><span style = "color: #4a4a4d;"><b>Shrey Gupta</b>, Alireza Karduni, & Emily Wall.</span> 
-            <!-- <b>EuroVis, 2023 </b> -->
+            <br><span>
+            <a href="assets/files/publications/belief-persistence/belief-persistence-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+            <a href ="https://github.com/shrey-gupta/belief-persistence-evis23">[code]</a>
+            <a href ="assets/files/publications/belief-persistence/eurovis-presentation.pdf">[slides]</a>
+            <a href ="https://www.youtube.com/watch?v=fDGDFzQVHo8">[talk]</a>
+            </span>
           </li>
           <br> 
           <li>
-            <span style = "color: #2C3D63;"> <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8"> 
+            <b>[IJDSA, 2023]</b> &nbsp; <span style = "color: #2C3D63;"> <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8"> 
               Boosting for Regression Transfer via Importance Sampling.</a> </span>
-              &nbsp; <b>[IJDSA, 2023]</b> &nbsp; <a href ="assets/files/publications/stradaboostr2-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+              &nbsp;
               <br><span style = "color: #4a4a4d;"><b>Shrey Gupta</b>, Jianzhao Bi, Yang Liu, & Avani Wildani. </span>
-            <!-- <a href="https://doi.org/10.48550/arXiv.2204.12044">[arXiv LINK]</a>. -->
+              <br><span>
+                <a href ="assets/files/publications/stradaboost-r2/stradaboostr2-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+                <a href ="assets/files/publications/stradaboost-r2/ga-stat-day-shrey.pdf">[poster]</a>
+              </span>
           </li> 
           <br>
           <li>
-            <span style = "color: #2C3D63;"> <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
+            <b>[Plos One, 2021]</b>  &nbsp; <span style = "color: #2C3D63;"> <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
             DALIA- A Comprehensive Resource of Disease Alleles in Arab population.</a></span> 
-            &nbsp; <b>[Plos One, 2021]</b>  &nbsp; <a href="assets/files/publivations/dalia-parul.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+            &nbsp; <span><a href="assets/files/publivations/dalia-parul.pdf"><i class="fa-solid fa-file-pdf"></i></a></span>
             <br><span style = "color: #4a4a4d;">Aastha Vatsyayan*, Parul Sharma*, <b>Shrey Gupta</b>, Sumiti Sandhu, 
             Seetha Lakshmi Venu, Vandana Sharma, Bouabid Badaoui, Kaidi Azedine,
             Serti Youssef, Anna Rajab, Alaaeldin Fayez, Seema Madinur, Anop Ranawat, 
@@ -412,12 +462,22 @@ body {
 </script>
        
     
-<footer class="w3-container w3-teal w3-center w3-margin-top">
- <small>Copyright &copy; Shrey Gupta. All rights reserved. Switch Theme: <button onclick="toggleTheme()">SWTCH</button> </small>
- <!-- Tetris designed by <a href="https://aerolab.us/">aerolab</a>. -->
- 
+<!-- <footer class="w3-container w3-teal w3-center w3-margin-top">
+ <small>Copyright &copy; Shrey Gupta. &ensp; Switch Theme: <button onclick="toggleTheme()">SWTCH</button> </small>
+</footer> -->
 
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <small>Copyright &copy; Shrey Gupta. &ensp; Switch Theme: 
+      <label class="switch">
+          <input type="checkbox" onclick="toggleTheme()">
+          <span class="slider"></span>
+      </label>
+  </small>
 </footer>
+
+<!-- Tetris designed by <a href="https://aerolab.us/">aerolab</a>. -->
+
+
 
 </body>
 </html>
