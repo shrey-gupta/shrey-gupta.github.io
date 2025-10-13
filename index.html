@@ -131,10 +131,24 @@
             object-fit: cover;
             flex-shrink: 0;
             border: 3px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         body.dark .profile-image {
             border-color: var(--border-dark);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image:hover {
+            border-color: var(--accent-light);
+            box-shadow: 0 6px 20px rgba(44, 95, 141, 0.3);
+            transform: scale(1.02);
+        }
+
+        body.dark .profile-image:hover {
+            border-color: var(--accent-dark);
+            box-shadow: 0 6px 20px rgba(107, 163, 212, 0.3);
         }
 
         .header-content {
@@ -180,7 +194,63 @@
             color: var(--secondary-dark);
         }
 
-        /* Social Links */
+        /* Research Interests Tags */
+        .research-interests {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: var(--card-light);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        body.dark .research-interests {
+            background: var(--card-dark);
+            border-color: var(--border-dark);
+        }
+
+        .research-interests h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary-light);
+            margin-bottom: 1rem;
+        }
+
+        body.dark .research-interests h3 {
+            color: var(--secondary-dark);
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: var(--accent-light);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.dark .tag {
+            background: var(--accent-dark);
+            color: var(--bg-dark);
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(44, 95, 141, 0.3);
+        }
+
+        body.dark .tag:hover {
+            box-shadow: 0 4px 8px rgba(107, 163, 212, 0.3);
+        }
         .social-links {
             display: flex;
             gap: 1.5rem;
@@ -232,7 +302,8 @@
         a {
             color: var(--accent-light);
             text-decoration: none;
-            transition: opacity 0.2s ease;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
         body.dark a {
@@ -241,6 +312,15 @@
 
         a:hover {
             opacity: 0.7;
+        }
+
+        /* Subtle underline on hover for content links */
+        .bio a:hover,
+        .publication-links a:hover,
+        .news-content a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
         }
 
         /* News Section */
@@ -373,6 +453,7 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
         }
 
         body.dark .publication {
@@ -501,6 +582,16 @@
         <i class="fas fa-moon" id="themeIcon"></i>
     </button>
 
+    <!-- Quick Navigation -->
+    <nav class="quick-nav">
+        <div class="nav-dot" data-section="About" onclick="scrollToSection('about')"></div>
+        <div class="nav-dot" data-section="News" onclick="scrollToSection('news')"></div>
+        <div class="nav-dot" data-section="Publications" onclick="scrollToSection('publications')"></div>
+    </nav>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" style="visibility: hidden; transform: translateY(100px);">Email copied to clipboard!</div>
+
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -537,7 +628,7 @@
         </header>
 
         <!-- Bio -->
-        <section class="bio">
+        <section class="bio" id="about">
             <h2>About</h2>
             <p>I am a postdoctoral scholar in the Computer Science and Earth & Environmental Science departments at Boston College working with <a href="https://www.bc.edu/content/bc-web/schools/morrissey/departments/computer-science/people/faculty-directory/george-mohler.html">George Mohler</a> and <a href="https://www.bc.edu/bc-web/schools/morrissey/departments/eesc/people/faculty-directory/yi-ming.html">Yi Ming</a>.</p>
 
@@ -549,7 +640,7 @@
         </section>
 
         <!-- News -->
-        <section class="news-section">
+        <section class="news-section" id="news">
             <h2>News</h2>
             <div class="news-container">
                 <ul class="news-list">
@@ -639,7 +730,7 @@
         </section>
 
         <!-- Publications -->
-        <section class="publications">
+        <section class="publications" id="publications">
             <h2>Selected Publications</h2>
 
             <div class="publication">
@@ -768,6 +859,56 @@
         const currentDate = new Date();
         const monthYear = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
         lastUpdatedElement.textContent = `Last updated: ${monthYear}`;
+
+        // Copy email to clipboard
+        function copyEmail(event) {
+            event.preventDefault();
+            const email = 'shrey.gupta@emory.edu';
+            
+            // Create temporary input to copy text
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show toast notification
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Update active navigation dot on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['about', 'news', 'publications'];
+            const navDots = document.querySelectorAll('.nav-dot');
+            
+            let currentSection = '';
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSection = sectionId;
+                }
+            });
+            
+            navDots.forEach((dot, index) => {
+                if (sections[index] === currentSection) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
