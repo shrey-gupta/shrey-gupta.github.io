@@ -337,49 +337,9 @@
             color: var(--secondary-dark);
         }
 
-        .year-section {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 1.5rem;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .year-section {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-        }
-
-        .year-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--secondary-light);
-            padding-top: 0.25rem;
-            position: sticky;
-            top: 8rem;
-            align-self: start;
-        }
-
-        body.dark .year-title {
-            color: var(--secondary-dark);
-        }
-
-        @media (max-width: 768px) {
-            .year-title {
-                position: static;
-                margin-bottom: 0.5rem;
-            }
-        }
-
-        .year-publications {
-            display: flex;
-            flex-direction: column;
-        }
-
         .publication {
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -650,96 +610,76 @@
         <section class="publications">
             <h2>Selected Publications</h2>
 
-            <div class="year-section">
-                <h3 class="year-title">2025</h3>
-                <div class="year-publications">
-                    <div class="publication">
-                        <div class="publication-title">
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatially Adaptive PM2.5 Estimation in Low-sensor Regions using Variational Gaussian Processes</a>
-                        </div>
-                        <div class="publication-authors">
-                            <strong>Shrey Gupta</strong>, Avani Wildani, Yang Liu
-                        </div>
-                        <div class="publication-venue">DSAA 2025</div>
-                        <div class="publication-links">
-                            <a href="assets/files/publications/svgps-2025/svgps_for_limited_sensors_final.pdf">PDF</a>
-                            <a href="assets/files/publications/svgps-2025/shrey-gupta-dsaa-presentation.pdf">Slides</a>
-                        </div>
-                    </div>
+            <div class="publication">
+                <div class="publication-title">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatially Adaptive PM2.5 Estimation in Low-sensor Regions using Variational Gaussian Processes</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Shrey Gupta</strong>, Avani Wildani, Yang Liu
+                </div>
+                <div class="publication-venue">DSAA 2025</div>
+                <div class="publication-links">
+                    <a href="assets/files/publications/svgps-2025/svgps_for_limited_sensors_final.pdf">PDF</a>
+                    <a href="assets/files/publications/svgps-2025/shrey-gupta-dsaa-presentation.pdf">Slides</a>
                 </div>
             </div>
 
-            <div class="year-section">
-                <h3 class="year-title">2024</h3>
-                <div class="year-publications">
-                    <div class="publication">
-                        <div class="publication-title">
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatial Transfer Learning for Estimating PM 2.5 in Data-poor Regions</a>
-                        </div>
-                        <div class="publication-authors">
-                            <strong>Shrey Gupta*</strong>, Yongbee Park*, Jianzhao Bi, Suyash Gupta, Andreas Züfle, Avani Wildani, Yang Liu
-                        </div>
-                        <div class="publication-venue">ECML-PKDD 2024</div>
-                        <div class="publication-links">
-                            <a href="https://arxiv.org/pdf/2404.07308">PDF</a>
-                            <a href="https://github.com/YongbeeIngkle/spatial-transfer-learning">Code</a>
-                            <a href="assets/files/publications/spatial-transfer/ecml-pkdd-paper-slides.pdf">Slides</a>
-                            <a href="assets/files/publications/spatial-transfer/paper-poster-ecml-pkdd.pdf">Poster</a>
-                        </div>
-                    </div>
+            <div class="publication">
+                <div class="publication-title">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatial Transfer Learning for Estimating PM 2.5 in Data-poor Regions</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Shrey Gupta*</strong>, Yongbee Park*, Jianzhao Bi, Suyash Gupta, Andreas Züfle, Avani Wildani, Yang Liu
+                </div>
+                <div class="publication-venue">ECML-PKDD 2024</div>
+                <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2404.07308">PDF</a>
+                    <a href="https://github.com/YongbeeIngkle/spatial-transfer-learning">Code</a>
+                    <a href="assets/files/publications/spatial-transfer/ecml-pkdd-paper-slides.pdf">Slides</a>
+                    <a href="assets/files/publications/spatial-transfer/paper-poster-ecml-pkdd.pdf">Poster</a>
                 </div>
             </div>
 
-            <div class="year-section">
-                <h3 class="year-title">2023</h3>
-                <div class="year-publications">
-                    <div class="publication">
-                        <div class="publication-title">
-                            <a href="https://doi.org/10.1111/cgf.14816">Belief Decay or Persistence? A Mixed-method Study on Belief Movement Over Time</a>
-                        </div>
-                        <div class="publication-authors">
-                            <strong>Shrey Gupta</strong>, Alireza Karduni, Emily Wall
-                        </div>
-                        <div class="publication-venue">EuroVis 2023</div>
-                        <div class="publication-links">
-                            <a href="assets/files/publications/belief-persistence/belief-persistence-shrey.pdf">PDF</a>
-                            <a href="https://github.com/shrey-gupta/belief-persistence-evis23">Code</a>
-                            <a href="assets/files/publications/belief-persistence/eurovis-presentation.pdf">Slides</a>
-                            <a href="https://www.youtube.com/watch?v=fDGDFzQVHo8">Talk</a>
-                        </div>
-                    </div>
-
-                    <div class="publication">
-                        <div class="publication-title">
-                            <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8">Boosting for Regression Transfer via Importance Sampling</a>
-                        </div>
-                        <div class="publication-authors">
-                            <strong>Shrey Gupta</strong>, Jianzhao Bi, Yang Liu, Avani Wildani
-                        </div>
-                        <div class="publication-venue">IJDSA 2023</div>
-                        <div class="publication-links">
-                            <a href="assets/files/publications/stradaboost-r2/stradaboostr2-shrey.pdf">PDF</a>
-                            <a href="assets/files/publications/stradaboost-r2/ga-stat-day-shrey.pdf">Poster</a>
-                        </div>
-                    </div>
+            <div class="publication">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.1111/cgf.14816">Belief Decay or Persistence? A Mixed-method Study on Belief Movement Over Time</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Shrey Gupta</strong>, Alireza Karduni, Emily Wall
+                </div>
+                <div class="publication-venue">EuroVis 2023</div>
+                <div class="publication-links">
+                    <a href="assets/files/publications/belief-persistence/belief-persistence-shrey.pdf">PDF</a>
+                    <a href="https://github.com/shrey-gupta/belief-persistence-evis23">Code</a>
+                    <a href="assets/files/publications/belief-persistence/eurovis-presentation.pdf">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=fDGDFzQVHo8">Talk</a>
                 </div>
             </div>
 
-            <div class="year-section">
-                <h3 class="year-title">2021</h3>
-                <div class="year-publications">
-                    <div class="publication">
-                        <div class="publication-title">
-                            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">DALIA- A Comprehensive Resource of Disease Alleles in Arab Population</a>
-                        </div>
-                        <div class="publication-authors">
-                            Aastha Vatsyayan*, Parul Sharma*, <strong>Shrey Gupta</strong>, Sumiti Sandhu, Seetha Lakshmi Venu, Vandana Sharma, Bouabid Badaoui, Kaidi Azedine, Serti Youssef, Anna Rajab, Alaaeldin Fayez, Seema Madinur, Anop Ranawat, Kavita Pandhare, Srinivasan Ramachandran, Sridhar Sivasubbu, Vinod Scaria
-                        </div>
-                        <div class="publication-venue">PLOS ONE 2021</div>
-                        <div class="publication-links">
-                            <a href="assets/files/publivations/dalia-parul.pdf">PDF</a>
-                        </div>
-                    </div>
+            <div class="publication">
+                <div class="publication-title">
+                    <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8">Boosting for Regression Transfer via Importance Sampling</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Shrey Gupta</strong>, Jianzhao Bi, Yang Liu, Avani Wildani
+                </div>
+                <div class="publication-venue">IJDSA 2023</div>
+                <div class="publication-links">
+                    <a href="assets/files/publications/stradaboost-r2/stradaboostr2-shrey.pdf">PDF</a>
+                    <a href="assets/files/publications/stradaboost-r2/ga-stat-day-shrey.pdf">Poster</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">DALIA- A Comprehensive Resource of Disease Alleles in Arab Population</a>
+                </div>
+                <div class="publication-authors">
+                    Aastha Vatsyayan*, Parul Sharma*, <strong>Shrey Gupta</strong>, Sumiti Sandhu, Seetha Lakshmi Venu, Vandana Sharma, Bouabid Badaoui, Kaidi Azedine, Serti Youssef, Anna Rajab, Alaaeldin Fayez, Seema Madinur, Anop Ranawat, Kavita Pandhare, Srinivasan Ramachandran, Sridhar Sivasubbu, Vinod Scaria
+                </div>
+                <div class="publication-venue">PLOS ONE 2021</div>
+                <div class="publication-links">
+                    <a href="assets/files/publivations/dalia-parul.pdf">PDF</a>
                 </div>
             </div>
         </section>
