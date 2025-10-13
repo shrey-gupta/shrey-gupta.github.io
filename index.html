@@ -1,517 +1,758 @@
 <!DOCTYPE html>
-<html>
-<title>Shrey Gupta</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--Favicons for website URL-->
-<link rel="icon" href="icons-s.png"> 
-<!-- type="image/x-icon"   -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrey Gupta</title>
+    <link rel="icon" href="icons-s.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- The stylesheet should go in the <head>, or be included in your CSS -->
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" /> -->
-<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<link rel="stylesheet" href="src/blockrain.css">
+        :root {
+            --text-light: #1a1a1a;
+            --text-dark: #e8e8e8;
+            --bg-light: #f5f5f0;
+            --bg-dark: #0a0a0a;
+            --accent-light: #2c5f8d;
+            --accent-dark: #6ba3d4;
+            --secondary-light: #6b7280;
+            --secondary-dark: #9ca3af;
+            --border-light: #e5e7eb;
+            --border-dark: #27272a;
+        }
 
-<link href='https://fonts.googleapis.com/css?family=Garamond' rel='stylesheet'>
-<!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Varela" /> -->
-<script src="https://kit.fontawesome.com/2c01e62ef1.js" crossorigin="anonymous"></script>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--text-light);
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+        }
 
-<style>
- body 
- {
-  background-color: #F5F5F5;
-  font-family: 'Lato';font-size: 17px;
- }
+        body.dark {
+            color: var(--text-dark);
+            background: var(--bg-dark);
+        }
 
- /* 'Titillium Web'  */
-html,h1,h2,h3,h4,h5,h6 {font-family: 'Varela', sans-serif}
- 
-/* unvisited link */
- 
-.bolder{
-            font-weight: boldest;
-}
- 
-a:link {
-  color: #2C3D63;
-  text-decoration: none;
-}
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            z-index: 100;
+            padding: 0.5rem;
+            transition: transform 0.3s ease;
+        }
 
-/* visited link */
-a:visited {
-  color: #A3ADB8;
-  text-decoration: none;
-}
+        body.dark .theme-toggle {
+            color: var(--text-dark);
+        }
 
-/* mouse over link */
-a:hover {
-  color: #00535F;
-  text-decoration: none;
-}
+        .theme-toggle:hover {
+            transform: rotate(20deg);
+        }
 
-/* selected link */
-a:active {
-  color: #292930;
-  text-decoration: none;
-}
- 
-/* Light mode CSS */
-:root {
-  --text: #202020;
-  --background: #fafafa;
-}
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+        }
 
-/* Dark mode CSS */
-body.dark {
-  --text: #fafafa;
-  --background: #202020;
-}
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem 2rem 1.5rem;
+            }
+        }
 
-body {
-  color: var(--text);
-  background: var(--background);
-}
+        /* Header */
+        .header {
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            position: sticky;
+            top: 0;
+            background: var(--bg-light);
+            z-index: 50;
+            padding: 2rem 0;
+            margin-top: -2rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
 
-.row{
-  position: relative;
-}
+        body.dark .header {
+            background: var(--bg-dark);
+        }
 
-.news-ticker{
-  /* background: #fafafa; */
-  box-sizing: content-box;
-  height: 300px;
-  overflow: hidden;
-  padding: 5px 10px 10px 10px;
-}
+        .header.scrolled {
+            border-bottom-color: var(--border-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
 
-.news-ticker ul{
-   padding: 0;
-   margin-left: 10px;
-   list-style: circle;
-   animation:scrollUp 8s ease-in-out infinite normal;
-   -webkit-animation: scrollUp 28s ease-in-out infinite normal;
-   /* animation: ticker 5s infinite; 
-   animation-timing-function: cubic-bezier(1,0,.5,0); */
-   
-}
+        body.dark .header.scrolled {
+            border-bottom-color: var(--border-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
 
-@-webkit-keyframes scrollUp {
-  from {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  to {
-    -webkit-transform: translateY(-60%);
-            transform: translateY(-60%);
-  }
-}
-
-@keyframes scrollUp {
-  from {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  to {
-    -webkit-transform: translateY(-60%);
-            transform: translateY(-60%);
-  }
-}
-
-
-.news-ticker ul:hover{
-  animation-play-state: paused;
-}
-
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 52px;
-  height: 24px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* Slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 24px;
-}
-
-/* Slider before the switch */
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-}
-
-/* The toggle switch when checked */
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-/* The slider when checked */
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-
-</style>
-<body class="w3-light-grey">
- 
-<script>
-    // A function for toggling the theme
-    function toggleTheme() {
-        document.body.classList.toggle("light");
-        document.body.classList.toggle("dark");
-
-        localStorage.setItem(
-            "colorTheme",
-            document.body.classList.contains("dark") ? "dark" : "light"
-        );
-    }
-
-    // Initialize the theme
-    if (localStorage.getItem("colorTheme") === "dark") {
-        toggleTheme();
-    } else if (
-        localStorage.getItem("colorTheme") !== "light" &&
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-        toggleTheme();
-    }
-</script>
- 
-<!-- jQuery and Blockrain.js -->
-<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
-<!-- <script src="jquery.js"></script>
-<script src="blockrain.js"></script> -->
-<!-- <script>
-    $('.game').blockrain();
-</script> -->
-
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-    
-    <!-- Left Column -->
-    <div class="w3-third">
-      <div class="w3-white w3-text-grey">
-        
-        <div class="w3-display-container w3-padding-16">
-          <img src="Shrey_Piedmont.jpeg" style="width:100%;" alt="Avatar">
-            <div class="w3-display-bottomleft w3-container w3-padding-16">
-              <h2 style = "color: white;">Shrey Gupta</h2>
-            </div>
-        </div>
-
-        <div class="w3-container w3-padding-16">
-          <p>
-          Postdoctoral scholar at <a href="https://www.bc.edu/bc-web/centers/schiller-institute.html">Schiller Institute</a> | 
-          <a href="https://www.bc.edu/content/bc-web.html">Boston College</a>
-          <!-- <i class="fas fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal" style = "color: #2C3D63;"></i>PhD student <a href="https://www.emory.edu/home/index.html">
-           @Emory University</a> | Member of <a href="https://scholarblogs.emory.edu/remote-sensing-group/"> Remote Sensing Group</a> | Previously 
-           @<a href="https://cav-lab.github.io/">CAV Lab</a>, @<a href="https://simbiosys.mathcs.emory.edu/home">Simbiosys Lab</a> -->
-          </p>
-
-          <div style="text-align: center;">
-          
-          <a href="assets/files/resume/shrey_gupta_curriculum_vitae_2025.pdf" title="Resume">
-          <i class="fas fa-file fa-fw w3-xlarge w3-hover-opacity" style="color: #2C3D63;"></i></a>
-          <!-- fa-file  -->
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                position: relative;
+                padding: 0;
+                margin-top: 0;
+                border-bottom: none;
+            }
             
-          <a href = "mailto:shrey.gupta@emory.edu" title = "Email">
-            <i class="fas fa-envelope fa-fw w3-xlarge w3-hover-opacity" style="color: #2C3D63;"></i></a>
-          
-          <a href="https://scholar.google.com/citations?user=BItXMD4AAAAJ&hl=en">
-            <i class="fas fa-user-graduate fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          
-          <a href="https://github.com/shrey-gupta">
-            <i class="fab fa-github fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          
-          <a href="https://www.linkedin.com/in/shrey-gupta-2a793aa9/">
-            <i class="fab fa-linkedin fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          
-          <a href="https://twitter.com/shrey_gupta_92">
-            <i class="fab fa-twitter fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a>
-          
-          <!-- <a href="https://medium.com/@shreyg69">
-            <i class="fab fa-medium fa-fw w3-xlarge w3-hover-opacity" style = "color: #2C3D63;"></i></a> -->
-          
-        
-        <!-- <p><i class="fas fa-dot-circle fa-fw w3-margin-right w3-text-grey" style = "color: #2C3D63;"></i>   -->
-        </div>
-        
-        <!-- <div class="w3-container w3-padding-16">
-          <h3 style = "color: #2C3D63;"><b><i class="fa fa-globe fa-fw w3-margin-right" style = "color: #2C3D63;"></i>News</b></h3>
-            <div class="row">
-              
-              <div class="news-ticker">
-                <ul>
-                  <li>[5/27/2024] Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</li>
+            .header.scrolled {
+                box-shadow: none;
+            }
+        }
 
-                  <li style = "color: #A42941;"> New!! [11/06/2023] Successfully defended my PhD proposal!</li>
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid var(--border-light);
+        }
 
-                  <li>[6/15/2023] Our work on regression transfer learning got accepted at IJDSA journal!</li>
+        body.dark .profile-image {
+            border-color: var(--border-dark);
+        }
 
-                  <li>[2/27/2023] Our work on analyzing belief movement got accepted at EuroVis'23!</li>
+        .header-content {
+            flex: 1;
+        }
 
-                  <li> [11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022    
-                  </a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
-                  
-                  <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" 
-                    as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</li>
-                  
-                  <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022
-                  </a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li> -->
-                  
-                  <!-- <li>[2/17/2022] Presented my work: "Transfer Learning for Determining PM 2.5 for Data-Deficient Regions" 
-                    in GRITS'22 Seminar at Emory.</li>
-                  
-                  <li>Our paper titled, <a href ="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
-                    "DALIA- A Comprehensive Resource of Disease Alleles in Arab Population"</a> 
-                    got published in <a href ="https://journals.plos.org/plosone/">Plos One</a> Journal.</li> -->
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
 
-                  <!-- <li>Instructor for the course CS170 (Python Porgramming) for Fall 2020 semester.</li>
-                  
-                  <li>[2/24/2020] Attended the <a href="https://www.usenix.org/conference/fast20">FAST 2020
-                  </a> conference in Santa Clara, CA, USA. I am honored to receive the Travel Grand Award.</li>
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
 
-                  <li>Joined the PhD program in the Dept. of Computer Science @Emory University.</li> -->
-                
-                <!-- </ul>
-              </div>
+        body.dark .header .subtitle {
+            color: var(--secondary-dark);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.4rem;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+        }
+
+        body.dark .social-links a {
+            color: var(--text-dark);
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Bio Section */
+        .bio {
+            margin-bottom: 4rem;
+        }
+
+        .bio h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary-light);
+        }
+
+        body.dark .bio h2 {
+            color: var(--secondary-dark);
+        }
+
+        .bio p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        body.dark a {
+            color: var(--accent-dark);
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* News Section */
+        .news-section {
+            margin-bottom: 4rem;
+        }
+
+        .news-section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary-light);
+        }
+
+        body.dark .news-section h2 {
+            color: var(--secondary-dark);
+        }
+
+        .news-container {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-list {
+            list-style: none;
+            animation: scrollNews 40s linear infinite;
+        }
+
+        .news-list:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollNews {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        .news-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .news-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+
+        body.dark .news-item {
+            border-bottom-color: var(--border-dark);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: var(--secondary-light);
+            font-weight: 500;
+            flex-shrink: 0;
+            min-width: 110px;
+        }
+
+        body.dark .news-date {
+            color: var(--secondary-dark);
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        /* Publications */
+        .publications h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary-light);
+        }
+
+        body.dark .publications h2 {
+            color: var(--secondary-dark);
+        }
+
+        .year-section {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .year-section {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        .year-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary-light);
+            padding-top: 0.25rem;
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+        }
+
+        body.dark .year-title {
+            color: var(--secondary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .year-title {
+                position: static;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .year-publications {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .publication {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        body.dark .publication {
+            border-bottom-color: var(--border-dark);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        body.dark .publication-title {
+            color: var(--text-dark);
+        }
+
+        .publication-title a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        body.dark .publication-title a {
+            color: var(--text-dark);
+        }
+
+        .publication-title a:hover {
+            color: var(--accent-light);
+        }
+
+        body.dark .publication-title a:hover {
+            color: var(--accent-dark);
+        }
+
+        .publication-authors {
+            color: var(--secondary-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        body.dark .publication-authors {
+            color: var(--secondary-dark);
+        }
+
+        .publication-venue {
+            color: var(--secondary-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark .publication-venue {
+            color: var(--secondary-dark);
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .publication-links a {
+            color: var(--accent-light);
+        }
+
+        body.dark .publication-links a {
+            color: var(--accent-dark);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            color: var(--secondary-light);
+            font-size: 0.9rem;
+        }
+
+        body.dark footer {
+            border-top-color: var(--border-dark);
+            color: var(--secondary-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .back-to-top {
+            color: var(--accent-light);
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        body.dark .back-to-top {
+            color: var(--accent-dark);
+        }
+
+        .back-to-top:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="Shrey_Piedmont.jpeg" alt="Shrey Gupta" class="profile-image">
+            
+            <div class="header-content">
+                <h1>Shrey Gupta</h1>
+                <p class="subtitle">
+                    Postdoctoral scholar at <a href="https://www.bc.edu/bc-web/centers/schiller-institute.html">Schiller Institute</a> | 
+                    <a href="https://www.bc.edu/content/bc-web.html">Boston College</a>
+                </p>
+
+                <div class="social-links">
+                    <a href="assets/files/resume/shrey_gupta_curriculum_vitae_2025.pdf" title="Resume">
+                        <i class="fas fa-file"></i>
+                    </a>
+                    <a href="mailto:shrey.gupta@emory.edu" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=BItXMD4AAAAJ&hl=en" title="Google Scholar">
+                        <i class="fas fa-user-graduate"></i>
+                    </a>
+                    <a href="https://github.com/shrey-gupta" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shrey-gupta-2a793aa9/" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/shrey_gupta_92" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
             </div>
-        </div> -->
-      
-      
-      <div class="w3-container w3-padding-16">
-          <h3 style="color: #2C3D63; text-align: left;">
-              <b><i class="fa fa-globe fa-fw w3-margin-right" style="color: #2C3D63;"></i>News</b>
-          </h3>
-          <div class="news-ticker-container">
-              <div class="news-ticker">
-                  <ul>
-                      <li>[08/27/2025] Honored to receive the travel grant from IEEE DSAA, 2025</li>
-                      <li>[08/05/2025] Our work on application of variational Gaussian processes for low-sensor regions got accepted at DSAA, 2025</li>
-                      <li>[01/01/2025] Started my postdoc at the Schiller Institute, Boston College</li>
-                      <li>[9/10/2024] Presented poster for my dissertation at the PhD Forum @ECML-PKDD'24!</li>
-                      <li>[5/27/2024] Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</li>
-                      <li>[11/06/2023] Successfully defended my PhD proposal!</li>
-                      <li>[6/15/2023] Our work on regression transfer learning got accepted at IJDSA journal!</li>
-                      <li>[2/27/2023] Our work on analyzing belief movement got accepted at EuroVis'23!</li>
-                      <li>[11/1/2022] Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022</a> conference in Seattle, WA, USA. I am honored to receive the Travel Grant Award!</li>
-                      <li>[10/28/2022] Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022.</a></li>
-                      <!-- <li>[10/17/2022] Attended <a href="https://www.cikm2022.org/">ACM CIKM 2022</a> conference in Atlanta, GA, USA. I am honored to receive the Travel Grant Award!</li> -->
-                  </ul>
-              </div>
-          </div>
-      </div>
-        
-      </div>
-      </div>
+        </header>
 
-    <!-- End Left Column -->
+        <!-- Bio -->
+        <section class="bio">
+            <h2>About</h2>
+            <p>I am a postdoctoral scholar in the Computer Science and Earth & Environmental Science departments at Boston College working with <a href="https://www.bc.edu/content/bc-web/schools/morrissey/departments/computer-science/people/faculty-directory/george-mohler.html">George Mohler</a> and <a href="https://www.bc.edu/bc-web/schools/morrissey/departments/eesc/people/faculty-directory/yi-ming.html">Yi Ming</a>.</p>
+
+            <p>I work in the field of machine learning modeling for spatiotemporal domains where I specialize in designing region-agnostic, data-based models with applications catered to earth and environmental science domains. I particularly focus on designing transfer learning and domain adaptation models for point prediction. My research interests can be narrowed down to applied transfer learning & domain adaptation, and geospatial machine learning.</p>
+
+            <p>I completed my PhD in computer science at <a href="https://www.emory.edu/home/index.html">Emory University</a> where I was advised by <a href="https://research.cloudflare.com/about/people/avani-wildani/">Avani Wildani</a> and <a href="https://www.zuefle.org/">Andreas Züfle</a>. During this time, I also closely collaborated with and was mentored by <a href="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Yang Liu</a>.</p>
+
+            <p>I have also worked with <a href="https://emilywall.github.io/index.html">Emily Wall</a> at Emory, in the domain of human decision making as well as <a href="https://vinodscaria.genomes.in/">Vinod Scaria</a> @CSIR-IGIB for my master's <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/705">thesis</a>.</p>
+        </section>
+
+        <!-- News -->
+        <section class="news-section">
+            <h2>News</h2>
+            <div class="news-container">
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-date">[08/27/2025]</span>
+                        <span class="news-content">Honored to receive the travel grant from IEEE DSAA, 2025</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[08/05/2025]</span>
+                        <span class="news-content">Our work on application of variational Gaussian processes for low-sensor regions got accepted at DSAA, 2025</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[01/01/2025]</span>
+                        <span class="news-content">Started my postdoc at the Schiller Institute, Boston College</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[09/10/2024]</span>
+                        <span class="news-content">Presented poster for my dissertation at the PhD Forum @ECML-PKDD'24!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[05/27/2024]</span>
+                        <span class="news-content">Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[11/06/2023]</span>
+                        <span class="news-content">Successfully defended my PhD proposal!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[06/15/2023]</span>
+                        <span class="news-content">Our work on regression transfer learning got accepted at IJDSA journal!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[02/27/2023]</span>
+                        <span class="news-content">Our work on analyzing belief movement got accepted at EuroVis'23!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[11/01/2022]</span>
+                        <span class="news-content">Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022</a> conference in Seattle, WA, USA. Honored to receive the Travel Grant Award!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[10/28/2022]</span>
+                        <span class="news-content">Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022</a></span>
+                    </li>
+                    <!-- Duplicate items for seamless loop -->
+                    <li class="news-item">
+                        <span class="news-date">[08/27/2025]</span>
+                        <span class="news-content">Honored to receive the travel grant from IEEE DSAA, 2025</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[08/05/2025]</span>
+                        <span class="news-content">Our work on application of variational Gaussian processes for low-sensor regions got accepted at DSAA, 2025</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[01/01/2025]</span>
+                        <span class="news-content">Started my postdoc at the Schiller Institute, Boston College</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[09/10/2024]</span>
+                        <span class="news-content">Presented poster for my dissertation at the PhD Forum @ECML-PKDD'24!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[05/27/2024]</span>
+                        <span class="news-content">Our work on estimating PM 2.5 using spatial transfer learning got accepted at ECML-PKDD'24!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[11/06/2023]</span>
+                        <span class="news-content">Successfully defended my PhD proposal!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[06/15/2023]</span>
+                        <span class="news-content">Our work on regression transfer learning got accepted at IJDSA journal!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[02/27/2023]</span>
+                        <span class="news-content">Our work on analyzing belief movement got accepted at EuroVis'23!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[11/01/2022]</span>
+                        <span class="news-content">Attended <a href="https://sigspatial2022.sigspatial.org/">ACM SIGSPATIAL 2022</a> conference in Seattle, WA, USA. Honored to receive the Travel Grant Award!</span>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">[10/28/2022]</span>
+                        <span class="news-content">Presented my work: "Sampled-Boosting Regression Transfer for Atmospheric Pollution Prediction" as a poster on <a href="https://www.stat.uga.edu/events/content/2021/georgia-statistics-day-2022">Georgia Statistics Day 2022</a></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="publications">
+            <h2>Selected Publications</h2>
+
+            <div class="year-section">
+                <h3 class="year-title">2025</h3>
+                <div class="year-publications">
+                    <div class="publication">
+                        <div class="publication-title">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatially Adaptive PM2.5 Estimation in Low-sensor Regions using Variational Gaussian Processes</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Shrey Gupta</strong>, Avani Wildani, Yang Liu
+                        </div>
+                        <div class="publication-venue">DSAA 2025</div>
+                        <div class="publication-links">
+                            <a href="assets/files/publications/svgps-2025/svgps_for_limited_sensors_final.pdf">PDF</a>
+                            <a href="assets/files/publications/svgps-2025/shrey-gupta-dsaa-presentation.pdf">Slides</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-title">2024</h3>
+                <div class="year-publications">
+                    <div class="publication">
+                        <div class="publication-title">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatial Transfer Learning for Estimating PM 2.5 in Data-poor Regions</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Shrey Gupta*</strong>, Yongbee Park*, Jianzhao Bi, Suyash Gupta, Andreas Züfle, Avani Wildani, Yang Liu
+                        </div>
+                        <div class="publication-venue">ECML-PKDD 2024</div>
+                        <div class="publication-links">
+                            <a href="https://arxiv.org/pdf/2404.07308">PDF</a>
+                            <a href="https://github.com/YongbeeIngkle/spatial-transfer-learning">Code</a>
+                            <a href="assets/files/publications/spatial-transfer/ecml-pkdd-paper-slides.pdf">Slides</a>
+                            <a href="assets/files/publications/spatial-transfer/paper-poster-ecml-pkdd.pdf">Poster</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-title">2023</h3>
+                <div class="year-publications">
+                    <div class="publication">
+                        <div class="publication-title">
+                            <a href="https://doi.org/10.1111/cgf.14816">Belief Decay or Persistence? A Mixed-method Study on Belief Movement Over Time</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Shrey Gupta</strong>, Alireza Karduni, Emily Wall
+                        </div>
+                        <div class="publication-venue">EuroVis 2023</div>
+                        <div class="publication-links">
+                            <a href="assets/files/publications/belief-persistence/belief-persistence-shrey.pdf">PDF</a>
+                            <a href="https://github.com/shrey-gupta/belief-persistence-evis23">Code</a>
+                            <a href="assets/files/publications/belief-persistence/eurovis-presentation.pdf">Slides</a>
+                            <a href="https://www.youtube.com/watch?v=fDGDFzQVHo8">Talk</a>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="publication-title">
+                            <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8">Boosting for Regression Transfer via Importance Sampling</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Shrey Gupta</strong>, Jianzhao Bi, Yang Liu, Avani Wildani
+                        </div>
+                        <div class="publication-venue">IJDSA 2023</div>
+                        <div class="publication-links">
+                            <a href="assets/files/publications/stradaboost-r2/stradaboostr2-shrey.pdf">PDF</a>
+                            <a href="assets/files/publications/stradaboost-r2/ga-stat-day-shrey.pdf">Poster</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <h3 class="year-title">2021</h3>
+                <div class="year-publications">
+                    <div class="publication">
+                        <div class="publication-title">
+                            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">DALIA- A Comprehensive Resource of Disease Alleles in Arab Population</a>
+                        </div>
+                        <div class="publication-authors">
+                            Aastha Vatsyayan*, Parul Sharma*, <strong>Shrey Gupta</strong>, Sumiti Sandhu, Seetha Lakshmi Venu, Vandana Sharma, Bouabid Badaoui, Kaidi Azedine, Serti Youssef, Anna Rajab, Alaaeldin Fayez, Seema Madinur, Anop Ranawat, Kavita Pandhare, Srinivasan Ramachandran, Sridhar Sivasubbu, Vinod Scaria
+                        </div>
+                        <div class="publication-venue">PLOS ONE 2021</div>
+                        <div class="publication-links">
+                            <a href="assets/files/publivations/dalia-parul.pdf">PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16" style="text-align: left; color: #2C3D63;">About Me</h2>
-<!--        <i class="fas fa-portrait fa-fw w3-margin-right w3-text-red"></i>
-        -->
-       <p style="text-align:justify"> I am a postdoctoral scholar in the Computer Science and Earth & Environmental Science departments at Boston College 
-        working with <a href ="https://www.bc.edu/content/bc-web/schools/morrissey/departments/computer-science/people/faculty-directory/george-mohler.html">George Mohler</a> and 
-        <a href ="https://www.bc.edu/bc-web/schools/morrissey/departments/eesc/people/faculty-directory/yi-ming.html">Yi Ming</a>. 
-        <br><br>
-        
-        I work in the field of machine learning modeling for spatiotemporal domains where I specialize in designing region-agnostic, data-based models
-        with applications catered to earth and enviromental science domains.
-        I particularly focus on designing transfer learning and domain adaptation models for point prediction. 
-        My research interests can be narrowed down to applied transfer learning & domain adaptation, and geospatial machine learning.
-        <br><br>
+    <footer>
+        <div class="footer-content">
+            <span>Copyright &copy; Shrey Gupta 2025</span>
+            <span>•</span>
+            <span>Last updated: January 2025</span>
+            <span>•</span>
+            <a href="#" class="back-to-top" onclick="scrollToTop(event)">Back to top ↑</a>
+        </div>
+    </footer>
 
-        I completed my PhD in computer science at <a href="https://www.emory.edu/home/index.html">Emory University</a> 
-        where I was advised by <a href ="https://research.cloudflare.com/about/people/avani-wildani/">Avani Wildani</a> and 
-        <a href ="https://www.zuefle.org/">Andreas Züfle</a>. 
-        During this time, I also closely collaborated with and was mentored by
-        <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Yang Liu</a>.
-        <br><br>  
-        
-        <!-- </a> My research focuses on designing domain adaptation & transfer learning models for high-dimensional spatio-temporal datasets. 
-        The current transfer learning methodologies do not account for non-i.i.d characteristics in the data. Since spatio-temporal data often consists of 
-        such spurious characterisitcs, the objective of my research is to understand latent patterns in the data, improve the robustness of transfer learning
-        techniques and design effective (data-efficient) modeling techniques for the (complex) data. A problem that I am keenly interested in is designing transfer learning
-        models for the prediction of air pollution in countries/communities that require a cost effective solution. -->
-        <!-- For my research, I am fortunate to work with <a href ="https://sph.emory.edu/faculty/profile/index.php?FID=yang-liu-632">Dr. Yang Liu</a> and 
-        <a href ="https://www.zuefle.org/">Dr Andreas Züfle</a>.  -->
-      
-        I have also worked with <a href ="https://emilywall.github.io/index.html">Emily Wall</a> at Emory, in the domain of human decision making
-        as well as  <a href="https://vinodscaria.genomes.in/">Vinod Scaria</a> @CSIR-IGIB for my master's 
-        <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/705">thesis</a>.
-      <!-- Previously, I obtained my master's degree at <a href="https://www.iiitd.ac.in/">IIIT-Delhi</a> 
-      where I worked with <a href="https://vinodscaria.genomes.in/">Dr. Vinod Scaria</a> @CSIR-IGIB for my 
-      master's <a href="https://repository.iiitd.edu.in/xmlui/handle/123456789/705">thesis</a>.  -->
-      </p>
-       <!-- and <a href ="https://scholar.google.com/citations?user=WR669KMAAAAJ&hl=en">Dr. Jianzhao Bi</a> -->
-       <!-- style = "font-family: cursive" -->
-           
-      </div>
-     
-     <div class = "w3-container w3-white  w3-margin-bottom">
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const icon = document.getElementById('themeIcon');
+            const isDark = document.body.classList.contains('dark');
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
 
-        <h2 class = "w3-text-grey w3-padding-16" style = "text-align: left; color: #2C3D63;">Publications</h2>
-        <ul style = "padding: 0;
-        margin-left: 10px;
-        list-style: circle;"> 
-        <li>
-          <b>[DSAA, 2025]</b> &nbsp; <span style = "color: #2C3D63;"><a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24"> 
-            Spatially Adaptive PM2.5 Estimation in Low-sensor Regions using Variational Gaussian Processes </a></span>
-          &nbsp; 
-          <br><span style = "color: #4a4a4d;"><b>Shrey Gupta</b>, Avani Wildani & Yang Liu.</span> 
-          <br><span>
-            <a href="assets/files/publications/svgps-2025/svgps_for_limited_sensors_final.pdf"><i class="fa-solid fa-file-pdf"></i></a>
-            <!-- <a href ="https://github.com/YongbeeIngkle/spatial-transfer-learning">[code]</a> -->
-            <a href ="assets/files/publications/svgps-2025/shrey-gupta-dsaa-presentation.pdf">[slides]</a>
-          </span>
-        </li>
-        <br>
-          <li>
-            <b>[ECML-PKDD, 2024]</b> &nbsp; <span style = "color: #2C3D63;"><a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24"> 
-              Spatial Transfer Learning for Estimating PM 2.5 in Data-poor Regions </a></span>
-            &nbsp; 
-            <br><span style = "color: #4a4a4d;"><b>Shrey Gupta*</b>, Yongbee Park*, Jianzhao Bi, Suyash Gupta, Andreas Züfle, Avani Wildani & Yang Liu.</span> 
-            <br><span>
-              <a href="https://arxiv.org/pdf/2404.07308"><i class="fa-solid fa-file-pdf"></i></a>
-              <a href ="https://github.com/YongbeeIngkle/spatial-transfer-learning">[code]</a>
-              <a href ="assets/files/publications/spatial-transfer/ecml-pkdd-paper-slides.pdf">[slides]</a>
-              <a href ="assets/files/publications/spatial-transfer/paper-poster-ecml-pkdd.pdf">[poster]</a>
-            </span>
-          </li>
-          <br> 
-          <li>
-            <b>[EuroVis, 2023]</b> &nbsp; <span style = "color: #2C3D63;"><a href="https://doi.org/10.1111/cgf.14816"> 
-              Belief Decay or Persistence? A Mixed-method Study on Belief Movement Over Time.</a></span>
-            &nbsp; 
-            <br><span style = "color: #4a4a4d;"><b>Shrey Gupta</b>, Alireza Karduni, & Emily Wall.</span> 
-            <br><span>
-            <a href="assets/files/publications/belief-persistence/belief-persistence-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
-            <a href ="https://github.com/shrey-gupta/belief-persistence-evis23">[code]</a>
-            <a href ="assets/files/publications/belief-persistence/eurovis-presentation.pdf">[slides]</a>
-            <a href ="https://www.youtube.com/watch?v=fDGDFzQVHo8">[talk]</a>
-            </span>
-          </li>
-          <br> 
-          <li>
-            <b>[IJDSA, 2023]</b> &nbsp; <span style = "color: #2C3D63;"> <a href="https://link.springer.com/article/10.1007/s41060-023-00414-8"> 
-              Boosting for Regression Transfer via Importance Sampling.</a> </span>
-              &nbsp;
-              <br><span style = "color: #4a4a4d;"><b>Shrey Gupta</b>, Jianzhao Bi, Yang Liu, & Avani Wildani. </span>
-              <br><span>
-                <a href ="assets/files/publications/stradaboost-r2/stradaboostr2-shrey.pdf"><i class="fa-solid fa-file-pdf"></i></a>
-                <a href ="assets/files/publications/stradaboost-r2/ga-stat-day-shrey.pdf">[poster]</a>
-              </span>
-          </li> 
-          <br>
-          <li>
-            <b>[Plos One, 2021]</b>  &nbsp; <span style = "color: #2C3D63;"> <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0244567">
-            DALIA- A Comprehensive Resource of Disease Alleles in Arab population.</a></span> 
-            &nbsp; <span><a href="assets/files/publivations/dalia-parul.pdf"><i class="fa-solid fa-file-pdf"></i></a></span>
-            <br><span style = "color: #4a4a4d;">Aastha Vatsyayan*, Parul Sharma*, <b>Shrey Gupta</b>, Sumiti Sandhu, 
-            Seetha Lakshmi Venu, Vandana Sharma, Bouabid Badaoui, Kaidi Azedine,
-            Serti Youssef, Anna Rajab, Alaaeldin Fayez, Seema Madinur, Anop Ranawat, 
-            Kavita Pandhare, Srinivasan Ramachandran, Sridhar Sivasubbu, Vinod Scaria.</span> 
-          </li> 
-        </ul>
-     </div>
+        // Initialize theme based on system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleTheme();
+        }
 
-      <!-- <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16" style="text-align: center; color: #2C3D63;">Miscellaneous</h2>
-        <p>When I'm not down the rabbit hole of research, I like to run, read and rhyme (yep, that was intentional). In a previous life, I liked playing soccer.
-          Some might even say I am decent at the game. Some ... not me ;). I always appreciate good coffee and book recommendations. 
-          Here are some books that I would recommend:</p>
-        <ul style = "padding: 0;
-        margin-left: 10px;
-        list-style: circle;">
-          <li><b>&lt;autobiographies&gt; :</b> [A River in Darkness| Masaji Ishikawa], 
-          [Educated| Tara Westover], [Five Chimneys| Olga Lengyel], [When Breath Becomes Air| Paul Kalanithi], [The Choice| Edith Eger], [Born a Crime| Trevor Noah]
-          </li>
-          <li><b>&lt;ultra-running&gt; :</b> [Finding Ultra| Rich Roll], 
-          [Eat & Run| Scott Jurek] 
-          </li>
-          <li><b>&lt;growth/success&gt; :</b> [Can't Hurt Me| David Goggins],
-          [Grit| Angela Duckworth], [Shoe Dog| Phil Knight]
-          </li>
-       </ul> -->
-        <!-- <p>Bored of reading all the technical stuff? Play some Tetris <b>
-        <a href="/game.html">here</a> ;)</b>
-        </p>  -->
-        
-      <!-- End Right Column -->
-      <!-- </div> -->
-    
-    <!-- End Grid -->
-    </div>
-    
-    <!-- End Page Container -->
-  </div>
-  
+        // Sticky header with scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-<script src="assets/js/jquery-1.11.1.min.js"></script>
-<script src="src/blockrain.jquery.libs.js"></script>
-<script src="src/blockrain.jquery.src.js"></script>
-<script src="src/blockrain.jquery.themes.js"></script>
-
-<script>
-  var $demo = $('#tetris-demo').blockrain({
-    showFieldOnStart: true,
-    theme: 'candy',
-    speed: 15
-  });
-</script>
-       
-    
-<!-- <footer class="w3-container w3-teal w3-center w3-margin-top">
- <small>Copyright &copy; Shrey Gupta. &ensp; Switch Theme: <button onclick="toggleTheme()">SWTCH</button> </small>
-</footer> -->
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <small>Copyright &copy; Shrey Gupta. &ensp; Switch Theme: 
-      <label class="switch">
-          <input type="checkbox" onclick="toggleTheme()">
-          <span class="slider"></span>
-      </label>
-  </small>
-</footer>
-
-<!-- Tetris designed by <a href="https://aerolab.us/">aerolab</a>. -->
-
-
-
+        // Back to top function
+        function scrollToTop(event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
