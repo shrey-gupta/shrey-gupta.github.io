@@ -667,8 +667,8 @@
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="https://www.goodreads.com/user/show/165419786-shrey-gupta" title="Goodreads">
-                      <i class="fas fa-book"></i>
-                  </a>
+                        <i class="fas fa-book"></i>
+                    </a>
                 </div>
             </div>
         </header>
@@ -876,8 +876,8 @@
             icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
         }
 
-        // Initialize theme - default to light mode, only switch to dark if user prefers dark AND is on desktop
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && window.innerWidth > 768) {
+        // Initialize theme - default to light mode on mobile, respect system preference on desktop
+        if (window.innerWidth > 768 && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             toggleTheme();
         }
 
