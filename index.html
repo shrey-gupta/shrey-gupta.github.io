@@ -111,13 +111,17 @@
         /* Mobile - NO sticky behavior */
         @media (max-width: 768px) {
             .header {
-                position: relative;
+                position: static !important;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 gap: 1rem;
-                padding: 0;
+                padding: 0 !important;
                 margin-bottom: 2rem;
+                margin-top: 0 !important;
+                background: transparent !important;
+                border-bottom: none !important;
+                box-shadow: none !important;
             }
 
             .profile-image {
