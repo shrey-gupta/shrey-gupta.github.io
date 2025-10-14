@@ -1,6 +1,6 @@
 # Shrey Gupta - Personal Portfolio
 
-My personal academic portfolio website showcasing research, publications, and professional experience.
+My academic website.
 
 ## Live Site
 [https://shrey-gupta.github.io](https://shrey-gupta.github.io)
