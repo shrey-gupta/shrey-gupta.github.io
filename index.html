@@ -109,6 +109,11 @@
                 border-bottom-color: var(--border-dark);
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             }
+
+            /* Hide photo when scrolled on desktop */
+            .header.scrolled .profile-image {
+                display: none;
+            }
         }
 
         /* Mobile sticky header */
@@ -189,6 +194,7 @@
 
         .header-content {
             flex: 1;
+            padding-left: 2.5rem;
         }
 
         @media (max-width: 768px) {
