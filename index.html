@@ -544,6 +544,33 @@
         .back-to-top:hover {
             opacity: 0.7;
         }
+        
+        .reading-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--secondary-light);
+        }
+
+        body.dark .reading-label {
+            color: var(--secondary-dark);
+        }
+
+        .book-chip {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(44, 95, 141, 0.08);
+            color: var(--accent-light);
+            white-space: nowrap;
+        }
+
+        body.dark .book-chip {
+            background: rgba(107, 163, 212, 0.15);
+            color: var(--accent-dark);
+        }
+
     </style>
 </head>
 <body>
@@ -558,8 +585,7 @@
             <div class="header-content">
                 <h1>Shrey Gupta</h1>
                 <p class="subtitle">
-                    Postdoctoral scholar at <a href="https://www.bc.edu/bc-web/centers/schiller-institute.html">Schiller Institute</a> | 
-                    <a href="https://www.bc.edu/content/bc-web.html">Boston College</a>
+                    Postdoctoral scholar at <a href="https://www.bc.edu/content/bc-web.html">Boston College</a>
                 </p>
 
                 <div class="social-links">
@@ -590,7 +616,7 @@
 
         <section class="bio" id="about">
             <h2>About</h2>
-            <p>I am a postdoctoral scholar in the Computer Science and Earth & Environmental Science departments at Boston College working with <a href="https://www.bc.edu/content/bc-web/schools/morrissey/departments/computer-science/people/faculty-directory/george-mohler.html">George Mohler</a> and <a href="https://www.bc.edu/bc-web/schools/morrissey/departments/eesc/people/faculty-directory/yi-ming.html">Yi Ming</a>.</p>
+            <p>I am a postdoctoral scholar at Boston College working with <a href="https://www.bc.edu/content/bc-web/schools/morrissey/departments/computer-science/people/faculty-directory/george-mohler.html">George Mohler</a> and <a href="https://www.bc.edu/bc-web/schools/morrissey/departments/eesc/people/faculty-directory/yi-ming.html">Yi Ming</a>.</p>
 
             <p>I work in the field of machine learning modeling for spatiotemporal domains where I specialize in designing region-agnostic, data-based models with applications catered to earth and environmental science domains. I particularly focus on designing transfer learning and domain adaptation models for point prediction. My research interests can be narrowed down to applied transfer learning & domain adaptation, and geospatial machine learning.</p>
 
@@ -696,7 +722,7 @@
 
             <div class="publication">
                 <div class="publication-title">
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-70378-2_24">Spatially Adaptive PM<sub>2.5</sub> Estimation in Low-sensor Regions using Variational Gaussian Processes</a>
+                    <a href="https://ieeexplore.ieee.org/document/11248033">Spatially Adaptive PM<sub>2.5</sub> Estimation in Low-sensor Regions using Variational Gaussian Processes</a>
                 </div>
                 <div class="publication-authors">
                     <strong>Shrey Gupta</strong>, Avani Wildani, Yang Liu
@@ -774,6 +800,15 @@
             <span>Copyright &copy; Shrey Gupta 2025</span>
             <span>•</span>
             <span id="lastUpdated">Last updated: October 2025</span>
+            <span>•</span>
+            <span class="reading-label">
+                <i class="fas fa-book-open"></i> Reading
+            </span>
+        
+            <span class="book-chip">The Usefulness of Useless Knowledge</span>
+            <span class="book-chip">Tuesdays with Morrie</span>
+            <span class="book-chip">East of Eden</span>
+        
             <span>•</span>
             <a href="#" class="back-to-top" onclick="scrollToTop(event)">Back to top ↑</a>
         </div>
